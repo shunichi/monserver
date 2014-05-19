@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Host Informations
+    meta name="keywords" content="template language"
+    link href='/bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'
+    link href='/stylesheet.css' rel='stylesheet' type='text/css'
+    script src="/jquery-2.1.0.min.js"
+  body
+    .container
+      h1 Host Informations
+
+      table.table.table-striped
+        tr
+          th 名前
+          th CPU
+          th(colspan=3) HDD容量
+          th メモリ容量
+        - @hostinfos.find.each do |info|
+          tr
+            td = info["Name"]
+            td = info["Cpu"]
+            / td == slim :_hdd, locals: { hddinfos: info["HddInfos"] }
+            == slim :_hdd2, locals: { hddinfos: info["HddInfos"] }
+            td = bytes_to_string(info["Memory"].to_i)

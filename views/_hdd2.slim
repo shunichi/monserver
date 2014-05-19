@@ -1,0 +1,4 @@
+- hddinfos.each do |info|
+  td = info["Name"] + ": "
+  td = hdd_size_percent(info)
+  td = hdd_size_string(info)
