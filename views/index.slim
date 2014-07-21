@@ -14,12 +14,12 @@ html
         tr
           th 名前
           th CPU
-          th(colspan=3) HDD容量
+          th(colspan=2) HDD使用量
           th メモリ容量
         - @hostinfos.find.each do |info|
           tr
             td = info["Name"]
             td = info["Cpu"]
-            / td == slim :_hdd, locals: { hddinfos: info["HddInfos"] }
-            == slim :_hdd2, locals: { hddinfos: info["HddInfos"] }
+            == slim :_hdd, locals: { hddinfos: info["HddInfos"] }
+            / == slim :_hdd2, locals: { hddinfos: info["HddInfos"] }
             td = bytes_to_string(info["Memory"].to_i)

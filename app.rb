@@ -73,5 +73,5 @@ post '/json' do
   else
     @hostinfos.insert( params )
   end
-  slim :index
+  "ok"
 end

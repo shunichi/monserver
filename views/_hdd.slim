@@ -1,6 +1,10 @@
-table
-  tr
-  	- hddinfos.each do |info|
-      td = info["Name"] + ": "
-      td = hdd_size_percent(info)
-      td = hdd_size_string(info)
+td
+  - hddinfos.each do |info|
+	table
+	  tr
+	    td = info["Name"]
+td
+  - hddinfos.each do |info|
+	table
+	  tr
+	    td = "#{hdd_size_percent(info)} (#{hdd_size_string(info)})"
